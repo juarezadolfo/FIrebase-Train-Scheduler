@@ -19,7 +19,79 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Train Schedule</h1>
+        </div>
 
+        <div id="wrapper">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Current Train Schedule</div>
+                <div class="panel-body">
+
+                    <table class="table table-hover" id="trains">
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency (minutes)</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="wrapper">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Add Your Train</div>
+                <div class="panel-body">
+
+                    <form>
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">Train</label>
+                            <input type="text" class="form-control" id="train-name" placeholder="Enter Name of Train">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">Destination</label>
+                            <input type="text" class="form-control" id="destination-name" placeholder="Where is your train going?">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput">First Train Time (HH:mm - military time)</label>
+                            <input type="text" class="form-control" id="start-date" placeholder="HH:mm">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="formGroupExampleInput2">Frequency (minutes)</label>
+                            <input type="text" class="form-control" id="monthly-rate" placeholder=":00">
+                        </div>
+                    </form>
+                    <a id="add-user" class="btn btn-primary" href="#" role="button">Submit</a>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </div>
 
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>

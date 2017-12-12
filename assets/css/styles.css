@@ -1,4 +1,15 @@
+body{
+    background-image: url("../images/train_background01.jpg");
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .jumbotron {
-    background: rgba(0, 0, 0, 0.699);
+    background: rgba(2, 66, 126, 0.664);
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
     color: whitesmoke;
+}
+.btn {
+    margin: 3px;
+    background-color: #2463a1;
+    border-color: whitesmoke;
 }
