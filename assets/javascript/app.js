@@ -48,20 +48,6 @@ database.ref().on("child_added", function (childSnapshot) {
     console.log(childSnapshot.val().trainTime);
     console.log(childSnapshot.val().frequencyMins);
 
-
-
-    // Change the HTML to reflect
-    var newTr = $("<tr>")
-    newTr.append("<td>" + childSnapshot.val().name + "</td>");
-    newTr.append("<td>" + childSnapshot.val().destination + "</td>");
-    newTr.append("<td>" + childSnapshot.val().frequencyMins + "</td>");
-    newTr.append("<td>" + childSnapshot.val().trainTime + "</td>");
-    newTr.append("<td>" + childSnapshot.val().minutesAway + "</td>");
-
-    //   newTr.append("<td>" + 0 + "</td>");
-
-    $("tbody").append(newTr);
-
 // The Math - subtract the first train back a year to ensure it's before current time
 var firstTrainConverted = moment(trainTime, "hh:mm").subtract("1, years");
 // the time difference between current time and the first train
@@ -80,6 +66,20 @@ var newTrain = {
 
 console.log(newTrain);
 database.ref().push(newTrain);
+
+    // Change the HTML to reflect
+    var newTr = $("<tr>")
+    newTr.append("<td>" + childSnapshot.val().name + "</td>");
+    newTr.append("<td>" + childSnapshot.val().destination + "</td>");
+    newTr.append("<td>" + childSnapshot.val().frequencyMins + "</td>");
+    newTr.append("<td>" + childSnapshot.val().trainTime + "</td>");
+    newTr.append("<td>" + childSnapshot.val().minutesAway + "</td>");
+
+    //   newTr.append("<td>" + 0 + "</td>");
+
+    $("tbody").append(newTr);
+
+
 
     // Handle the errors
 }, function (errorObject) {
