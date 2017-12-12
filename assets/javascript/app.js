@@ -17,6 +17,7 @@ var name = "";
 var destination = "";
 var trainTime = "";
 var frequencyMins = "";
+var minutesAway = "";
 
 // Capture Button Click
 $("#add-train").on("click", function (event) {
@@ -46,6 +47,25 @@ database.ref().on("child_added", function (childSnapshot) {
     console.log(childSnapshot.val().destination);
     console.log(childSnapshot.val().trainTime);
     console.log(childSnapshot.val().frequencyMins);
+
+// The Math - subtract the first train back a year to ensure it's before current time
+var firstTrainConverted = moment(trainTime, "hh:mm").subtract("1, years");
+// the time difference between current time and the first train
+var difference = currentTime.diff(moment(firstTrainConverted), "minutes");
+var remainder = difference % frequencyMins;
+var minsUntilTrain = frequencyMins -  remainder;
+var nextTrain = moment().add(minsUntilTrain, "minutes").format("hh:mm a");
+
+var newTrain = {
+    name: name,
+    destination: destination,
+    trainTime: trainTime,
+    frequencyMins: frequencyMins,
+    minutesAway: minutesAway,
+}
+
+console.log(newTrain);
+database.ref().push(newTrain);
 
     // Change the HTML to reflect
     var newTr = $("<tr>")
