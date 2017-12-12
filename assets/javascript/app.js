@@ -10,6 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+var currentTime = moment();
 
 // Initial variables
 var name = "";
@@ -18,7 +19,7 @@ var trainTime = "";
 var frequencyMins = "";
 
 // Capture Button Click
-$("#add-user").on("click", function (event) {
+$("#add-train").on("click", function (event) {
     event.preventDefault();
 
     // Grabbed values from text-boxes
@@ -36,7 +37,7 @@ $("#add-user").on("click", function (event) {
         minutesAway: firebase.database.ServerValue.TIMESTAMP
     });
 });
-// Add them to the HTML in our table
+// Add them to the HTML in table
 
 database.ref().on("child_added", function (childSnapshot) {
 
